@@ -3,8 +3,8 @@ Sending SMS via modem by using mmcli commands in a faster way. Including search 
 
 
 # FIRST-USE INSTALLATION
-1. Clone the script to ANY fixed directory
-2. Source the file
+1. Clone the script to ANY fixed directory  <br>
+2. Source the file  <br>
 3. [optional] Create a file for storing numbers with names; for example, numbers.txt
    
    Example:       XXXXXXXXXXX     NAME    NAME-IN-SHORT    SPECIFICATION-IF-THERE-IS-ANY  <br>
@@ -15,5 +15,5 @@ Sending SMS via modem by using mmcli commands in a faster way. Including search 
    Or even use ssend with $NAME, $MESSAGE.
    
 # PROBLEMS:
-   OBLIGATION TO ADD " " TO MESSAGE
+   OBLIGATION TO ADD " " TO MESSAGE  <br>
    CANNOT INPUT ' IN A MESSAGE
