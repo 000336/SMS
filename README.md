@@ -13,6 +13,8 @@ Sending SMS via modem by using mmcli commands in a faster way. Including search 
    store this txt and change the file name inside the script.
    You may search for names by using any string provided by yourself after their phone numbers.
    Or even use ssend with $NAME, $MESSAGE.
+
+DON'T FORGET TO GIVE SUDO ACCES TO MMCLI BY ADDING IT TO SUDOERS
    
 # PROBLEMS:
    OBLIGATION TO ADD " " TO MESSAGE  <br>
