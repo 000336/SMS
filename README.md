@@ -2,7 +2,7 @@
 Sending SMS via modem by using mmcli commands in a faster way. Including search number by name and use non-specific modem. 
 
 
-# FIRST-USE INSTALLATION
+# FIRST TIME USE
 1. Clone the script to ANY fixed directory  <br>
 2. Source the file  <br>
 3. [optional] Create a file for storing numbers with names; for example, numbers.txt
