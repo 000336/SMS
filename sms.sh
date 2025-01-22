@@ -104,14 +104,56 @@ done
 
 
 
-function sms_display(){
-rst=$(srecv)
-if [ ! $rst ]; then
-   rst=""
-   sleep 1s
-else
-   (notify-send --app-name=SMS "MESSAGE" "\"$rst"\") 1> /dev/null
+function sdisp(){
+if [ $# -gt 1 ]; then
+  echo "$0: SEND METHOD ONLY TAKES MAXIMUM ONE POSITIONAL ARGUMENTS"
+  echo "$0: USAGE: INPUT {MODEM: #=ANY}"
 fi
+
+if [ ! $1 ]; then
+  modem='any'
+else
+  modem=$1
+fi
+
+rst=$(sudo mmcli -m $modem --messaging-list-sms)
+rst=(${rst//"(received)"/})
+
+#lsms=()
+for i in ${rst[*]}; do
+  nsms=$(echo ${i}|grep -Eo '[0-9]+$')
+  rsms=$(sudo mmcli -s $nsms 2> /dev/null)
+  rsms=$(echo ${rsms// /-space-})
+  rsms=(${rsms//'|'/})
+
+  numb_send=${rsms[3]}
+  text_send=${rsms[4]}
+  time_send=${rsms[10]}
+
+  numb_send=$(echo ${numb_send//-space-/' '})
+  numb_send=$(echo ${numb_send/'Content number: '/''})
+  text_send=$(echo ${text_send//-space-/' '})
+  text_send=$(echo ${text_send/'text: '/''})
+  time_send=$(echo ${time_send//-space-/' '})
+  time_send=$(echo ${time_send/'timestamp: '/''})
+
+  if [ ! $numb_send ]; then
+     numb_send=""
+  else
+     data=$(cat '/home/user/Desktop/numero.txt' | grep ${numb_send:1:11})
+     if (( data < 1 ));
+     then
+        numb_send=$numb_send
+     else
+	n1=$(echo $data | cut -d " " -f2)
+	n2=$(echo $data | cut -d " " -f3)
+	numb_send=$n1" "$n2
+	# printf $numb_send
+     fi
+     notify-send "FROM  $numb_send"  "$text_send"  1> /dev/null
+     sudo mmcli -m $modem --messaging-delete-sms=$nsms 1> /dev/null
+  fi
+done
 }
 
 
