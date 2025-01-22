@@ -5,7 +5,7 @@
 function grepbyname(){
 if [ $# -eq 0 ];
 then
-  echo "$0: USAGE: INPUT {APPLICATION TO KILL:#}"
+  echo "$0: USAGE: INPUT NAME TO GREP BY PHONE NUMBER"
 
 elif [ $# -gt 1 ];
 then
