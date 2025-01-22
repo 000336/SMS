@@ -15,6 +15,22 @@ Sending SMS via modem by using mmcli commands in a faster way. Including search 
    Or even use ssend with $NAME, $MESSAGE.
 
 DON'T FORGET TO GIVE SUDO ACCES TO MMCLI BY ADDING IT TO SUDOERS
+
+# FEATURES:
+   function grepbyname: To grep the number associated with a specific name or description registered in phonenumber.txt
+   
+   function grepbynumber: To grep the name associated with a specific phone number registered in phonenumber.txt
+   
+   function ssend: To send a sms to provided number, may select modem to use
+
+   function srecv: To receive sms on any / selected modem
+
+   function sdisp: To display in notification center all sms received. This function may be used in a loop in order to display sms notification in real-time, for example, "while true; do sdisp; sleep 1; done;
+
+   function wwan_up: To turn WWAN connection up. This function required to register a cellular connection point first.
+
+   function wwan_down: To turn WWAN connection down. Same as before. 
+
    
 # PROBLEMS:
    OBLIGATION TO ADD " " TO MESSAGE  <br>
